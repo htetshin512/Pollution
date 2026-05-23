@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smart City Yangon - Causes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="media/logo.jpg" type="image/x-icon">
+
+    <style>
+        /* --- PREMIUM BLUE-GREY THEME VARIABLES --- */
+        :root {
+            --primary-blue-grey: #475569;
+            --dark-slate: #1e293b;
+            --accent-blue: #334155;
+            --soft-bg: #f8fafc;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: #fafbfc;
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-slate);
+        }
+
+        /* --- HEADER STYLING --- */
+        .page-header {
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(to right, #ffffff, #f1f5f9);
+        }
+
+        /* --- IMAGE CARD UPGRADES --- */
+        .inspo-card {
+            background: #ffffff;
+            border-radius: 1.5rem !important;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid var(--border-color) !important;
+            position: relative;
+        }
+
+        .inspo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08) !important;
+            border-color: var(--primary-blue-grey) !important;
+        }
+
+        .inspo-card .card-img-top {
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .inspo-card:hover .card-img-top {
+            transform: scale(1.08);
+        }
+
+        .icon-circle {
+            width: 45px;
+            height: 45px;
+            background: var(--soft-bg);
+            color: var(--primary-blue-grey);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .inspo-card:hover .icon-circle {
+            background: var(--primary-blue-grey);
+            color: #ffffff;
+        }
+
+        /* --- MODERN ACCORDION STYLING --- */
+        .accordion-item {
+            background: #fff;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 1rem !important;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            padding: 1.25rem;
+            font-weight: 600;
+            color: var(--dark-slate);
+            box-shadow: none !important;
+            background-color: #ffffff;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--soft-bg);
+            color: var(--primary-blue-grey);
+        }
+
+        /* --- DID YOU KNOW BOX --- */
+        .info-fact-box {
+            background: linear-gradient(145deg, #334155, #0f172a);
+            color: #ffffff;
+            border-radius: 2rem;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-fact-box::before {
+            content: '\F30B';
+            font-family: 'bootstrap-icons';
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 10rem;
+            opacity: 0.1;
+        }
+
+        .pulse-icon {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-3 nav-wrapper fade-">
+    <nav class="navbar navbar-expand-lg custom-nav">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="media/logo.jpg" class="rounded-logo" alt="Logo">
+                <span class="brand-name">EcoSphere</span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#mobileMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="desktopMenu">
+                <ul class="navbar-nav ms-auto align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html">Pollution Map</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Discovery</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="causes.html">Causes</a></li>
+                            <li><a class="dropdown-item" href="prevention.html">Prevention</a></li>
+                            <li><a class="dropdown-item" href="affects.html">Affects</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header border-bottom">
+        <div class="d-flex align-items-center gap-2">
+            <img src="media/logo.jpg" class="rounded-logo" style="width:42px;height:42px;" alt="Logo">
+            <h5 class="offcanvas-title text-dark mb-0" id="mobileMenuLabel">EcoSphere</h5>
+        </div>
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav gap-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="map.html">Pollution Map</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Discovery</a>
+                <ul class="dropdown-menu border-0 bg-transparent ps-3">
+                    <li><a class="dropdown-item" href="causes.html">Causes</a></li>
+                    <li><a class="dropdown-item" href="prevention.html">Prevention</a></li>
+                    <li><a class="dropdown-item" href="affects.html">Affects</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+</div>
+
+<header class="page-header py-5 mt-4 fade-in-up">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <span class="badge bg-secondary bg-opacity-10 text-secondary mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase tracking-widest" style="font-size: 0.75rem;">Source Analysis</span>
+                <h1 class="fw-bold display-4 mb-3" style="color: var(--dark-slate);">What’s affecting Yangon’s air?</h1>
+                <p class="text-muted lead mb-0">Identifying major pollution drivers to empower a cleaner urban environment and healthier community lifestyle.</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="container py-5 fade-in-up">
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+            <div class="inspo-card h-100 shadow-sm border-0">
+                <img src="media/photo_2026-05-14_01-42-00.jpg" class="card-img-top" alt="Traffic">
+                <div class="p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-circle me-3 shadow-sm"><i class="fa-solid fa-car-side"></i></div>
+                        <h5 class="fw-bold mb-0">Vehicle Emissions</h5>
+                    </div>
+                    <p class="small text-muted">The growing number of cars and buses release high levels of carbon monoxide and PM2.5. Traffic congestion in Yangon compounds this, forcing engines to burn fuel inefficiently at idle.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="inspo-card h-100 shadow-sm border-0">
+                <img src="media/Hledan Street.jpg" class="card-img-top" alt="Industry">
+                <div class="p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-circle me-3 shadow-sm"><i class="bi bi-buildings-fill"></i></div>
+                        <h5 class="fw-bold mb-0">Industrial Zones</h5>
+                    </div>
+                    <p class="small text-muted">Manufacturing hubs release chemical gases and particulate matter via fuel combustion. These industrial activities are primary contributors to urban smog and environmental degradation.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="inspo-card h-100 shadow-sm border-0">
+                <img src="media/photo_2026-05-14_01-45-28.jpg" class="card-img-top" alt="Burning">
+                <div class="p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-circle me-3 shadow-sm"><i class="fa-solid fa-fire"></i></div>
+                        <h5 class="fw-bold mb-0">Seasonal Burning</h5>
+                    </div>
+                    <p class="small text-muted">Burning agricultural waste and household leaves releases toxic smoke. During the dry season, pollutants remain trapped in the lower atmosphere, spikes pollution levels sharply.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container py-5 mb-5">
+    <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+            <h2 class="fw-bold mb-4">Deep Breakdown</h2>
+            <p class="text-muted mb-4">Explore the structural reasons behind Yangon's changing atmospheric conditions.</p>
+            
+            <div class="accordion accordion-flush shadow-sm p-2 bg-white rounded-4" id="causesBreakdown">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button rounded-3 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cause1">
+                            Rapid Urban Growth
+                        </button>
+                    </h2>
+                    <div id="cause1" class="accordion-collapse collapse show" data-bs-parent="#causesBreakdown">
+                        <div class="accordion-body text-muted small">
+                            Urbanization leads to increased construction dust and higher energy demands, which significantly lower clean air benchmarks in residential districts.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed rounded-3 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cause2">
+                            Grid Strain & Generators
+                        </button>
+                    </h2>
+                    <div id="cause2" class="accordion-collapse collapse" data-bs-parent="#causesBreakdown">
+                        <div class="accordion-body text-muted small">
+                            Diesel generators, used during grid outages, emit concentrated sulfur dioxide and nitrogen oxides directly into the street-level breathing zones.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed rounded-3 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cause3">
+                            Waste Management Needs
+                        </button>
+                    </h2>
+                    <div id="cause3" class="accordion-collapse collapse" data-bs-parent="#causesBreakdown">
+                        <div class="accordion-body text-muted small">
+                            Insufficient waste collection leads to community burning, which is the primary source of hazardous smoke in many local townships.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="info-fact-box shadow-lg">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-white bg-opacity-10 p-3 rounded-circle me-3 pulse-icon">
+                        <i class="bi bi-info-circle-fill fs-2"></i>
+                    </div>
+                    <h3 class="fw-bold mb-0">Did you know?</h3>
+                </div>
+                <p class="lead mb-4 opacity-75">Pollution in Yangon peaks during the **dry season** (Dec–May).</p>
+                <p class="small opacity-50">Stagnant air and lack of rain allow fine particles to accumulate, creating a "dome" effect of pollutants over the city center.</p>
+                <hr class="my-4 border-light opacity-10">
+                <div class="d-flex gap-2">
+                    <span class="badge bg-white bg-opacity-10 py-2 px-3">Dry Season Peaks</span>
+                    <span class="badge bg-white bg-opacity-10 py-2 px-3">Low Wind Factor</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer" class="custom-footer mt-5">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-12 text-center text-lg-start">
+                <a class="navbar-brand d-block mb-3" href="index.html">
+                    <img src="media/logo.jpg" class="rounded-logo border border-light border-opacity-25" style="width: 50px; height: 50px;">
+                    <span class="ms-2 fw-bold text-white">Smart City Yangon</span>
+                </a>
+                <p class="small opacity-75 pe-lg-5">
+                    Providing Yangon residents with accessible air quality information to encourage environmental awareness, healthier living, and sustainable urban development.
+                </p>
+                <div class="footer-socials d-flex gap-3 justify-content-center justify-content-lg-start mt-3">
+                 <a href="https://www.facebook.com/share/181xZYCWML/?mibextid=wwXIfr" class="text-white opacity-75">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="https://www.tiktok.com/@greenwaveprojectpbl?_r=1&_t=ZS-96brNTNGCgf" class="text-white opacity-75">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+
+<a href="https://web.telegram.org/k/" class="text-white opacity-75">
+<i class="fa-brands fa-telegram"></i>
+</a>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-2 offset-lg-1">
+                <h6 class="fw-bold mb-3 text-uppercase small">Explore</h6>
+                <ul class="list-unstyled small opacity-75">
+                    <li class="mb-2"><a href="index.html" class="text-decoration-none text-white">Home</a></li>
+                    <li class="mb-2"><a href="about.html" class="text-decoration-none text-white">About Us</a></li>
+                    <li class="mb-2"><a href="prevention.html" class="text-decoration-none text-white">Prevention</a></li>
+                    <li class="mb-2"><a href="affects.html" class="text-decoration-none text-white">Affects</a></li>
+                    <li class="mb-2"><a href="causes.html" class="text-decoration-none text-white">Causes</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-lg-2">
+                <h6 class="fw-bold mb-3 text-uppercase small">Resources</h6>
+                <ul class="list-unstyled small opacity-75">
+                    <li class="mb-2"><a href="faqs.html" class="text-decoration-none text-white">FAQs</a></li>
+                    <li class="mb-2"><a href="map.html" class="text-decoration-none text-white">Zoning Data</a></li>
+                    <li class="mb-2"><a href="privacy.html" class="text-decoration-none text-white">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-12">
+                <h6 class="fw-bold mb-3 text-uppercase small">Stay Updated</h6>
+                <p class="small opacity-75">Get alerts about air quality changes in Yangon.</p>
+                <form action="contact.html" method="GET">
+                    <div class="input-group mb-3">
+                        <input type="email" name="userEmail" class="form-control form-control-sm bg-transparent border-light border-opacity-25 text-white" placeholder="Enter email address" required>
+                        <button class="btn btn-outline-light btn-sm" type="submit">Join</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="citation-container">
+            <a href="media/Document 1.docx" download class="btn-citation download-btn me-2">Download Citation</a>
+            <a href="https://edusn-my.sharepoint.com/:w:/g/personal/thirihaymann_edusnschool_co_uk/IQCx-lve096ISLrrx7c4MkwNATe3js4er93nj6ka3yqateQ?e=VedTvq" target="_blank" class="btn-citation view-btn">View Citation</a>
+        </div>
+
+        <hr class="my-5 border-light border-opacity-10">
+
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="small mb-0 opacity-50">© 2026 Smart City Air Quality Project. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p class="small mb-0 opacity-50">Built by <span class="fw-bold">Thiri Hammer Team</span></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
