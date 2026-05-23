@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smart City Yangon</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Smooth Scrolling for Link Anchors */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 110px; /* Offset spacing so section titles aren't hidden by nav headers */
+        }
+
+        /* Solution Sidebar Spy Hover Styling */
+        .solution-spy .list-group-item {
+            border: none;
+            padding: 0.75rem 1.25rem;
+            font-weight: 500;
+            color: #64748b;
+            background: transparent;
+            transition: all 0.2s ease-in-out;
+            border-left: 3px solid transparent;
+        }
+        .solution-spy .list-group-item:hover {
+            color: #0d6efd;
+            background-color: #f8fafc;
+            padding-left: 1.5rem;
+        }
+        .solution-spy .list-group-item.active {
+            color: #0d6efd !important;
+            background-color: #e0f2fe !important;
+            border-left-color: #0d6efd;
+            font-weight: 600;
+        }
+
+        /* Image hover zooms */
+        .solution-image {
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .solution-card:hover .solution-image {
+            transform: scale(1.03);
+        }
+
+        /* Interactive Card tweaks */
+        .solution-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .solution-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.1) !important;
+        }
+
+        /* Mini feature item box interactions */
+        .mini-box {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid #f1f5f9;
+        }
+        .mini-box:hover {
+            background: #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+            border-color: #e2e8f0;
+        }
+
+        /* Custom Button Override */
+        .btn-dark-green {
+            background-color: #198754;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .btn-dark-green:hover {
+            background-color: #146c43;
+            color: white;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-3 nav-wrapper">
+    <nav class="navbar navbar-expand-lg custom-nav">
+        <div class="container-fluid">
+
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="media/logo.jpg" class="rounded-logo" alt="Logo">
+                <span class="brand-name fw-bold">EcoSphere</span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#mobileMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="desktopMenu">
+                <ul class="navbar-nav ms-auto align-items-center gap-3">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="map.html">Pollution Map</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown">
+                            Discovery
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="causes.html">Causes</a></li>
+                            <li><a class="dropdown-item" href="prevention.html">Prevention</a></li>
+                            <li><a class="dropdown-item" href="affects.html">Affects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="offcanvas offcanvas-end"
+     data-bs-scroll="true"
+     tabindex="-1"
+     id="mobileMenu"
+     aria-labelledby="mobileMenuLabel">
+
+    <div class="offcanvas-header">
+
+        <div class="d-flex align-items-center gap-2">
+
+            <img src="media/logo.jpg"
+                 class="rounded-logo"
+                 style="width:42px;height:42px;"
+                 alt="Logo">
+
+            <h5 class="offcanvas-title text-white mb-0"
+                id="mobileMenuLabel">
+
+                EcoSphere
+
+            </h5>
+
+        </div>
+
+        <button type="button"
+                class="btn-close btn-close-white shadow-none"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close">
+        </button>
+
+    </div>
+
+    <div class="offcanvas-body">
+
+        <ul class="navbar-nav gap-2">
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="map.html">
+                    Pollution Map
+                </a>
+            </li>
+
+            <li class="nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle"
+                   href="#"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   data-bs-display="static"
+                   aria-expanded="false">
+
+                    Discovery
+
+                </a>
+
+                <ul class="dropdown-menu border-0 bg-transparent">
+
+                    <li>
+                        <a class="dropdown-item text-white-50"
+                           href="causes.html">
+
+                           Causes
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item text-white-50"
+                           href="prevention.html">
+
+                           Prevention
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item text-white-50"
+                           href="affects.html">
+
+                           Affects
+
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">
+                    About Us
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">
+                    Contact Us
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<section class="container py-5 mt-4 fade-in-up">
+    <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+            <span class="tracking-widest text-uppercase text-secondary fw-bold">Smart City Solutions</span>
+            <h1 class="display-3 fw-bold mt-3">Cleaner Air Through Smart Urban Solutions</h1>
+            <p class="lead text-muted">Explore sustainable methods Yangon can use to reduce pollution, improve transportation systems, regulate industrial emissions, and implement smart environmental technologies.</p>
+
+            <div class="d-flex flex-wrap gap-2 mt-4">
+                <span class="badge bg-success px-3 py-2 rounded-pill">Cleaner Transport</span>
+                <span class="badge bg-dark px-3 py-2 rounded-pill">Industrial Control</span>
+                <span class="badge bg-primary px-3 py-2 rounded-pill">Smart Monitoring</span>
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">Public Awareness</span>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <img src="media/view.jpg" class="img-fluid rounded-5 shadow-lg" alt="Solutions">
+        </div>
+    </div>
+</section>
+
+<section class="container mb-5">
+    <div class="row">
+        <div class="col-lg-3 d-none d-lg-block">
+            <div id="solutionSpy" class="list-group sticky-top solution-spy" style="top: 110px; z-index: 100;">
+                <a class="list-group-item list-group-item-action" href="#transport">Transport</a>
+                <a class="list-group-item list-group-item-action" href="#industry">Industry</a>
+                <a class="list-group-item list-group-item-action" href="#smart">Smart Systems</a>
+                <a class="list-group-item list-group-item-action" href="#stats">Statistics</a>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+
+            <section id="transport" class="solution-section mb-5 fade-in-up">
+                <div class="card solution-card border-0 shadow-lg overflow-hidden">
+                    <img src="media/photo_2026-05-14_01-56-10.jpg" class="card-img-top solution-image">
+
+                    <div class="card-body p-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                            <h2 class="fw-bold">Vehicle Emission Reduction</h2>
+                            <span class="badge bg-danger rounded-pill px-3 py-2">High Priority</span>
+                        </div>
+
+                        <p class="text-muted">Traffic emissions are one of the biggest contributors to poor air quality in Yangon. Older diesel vehicles, traffic congestion, and fuel combustion release pollutants such as nitrogen dioxide, carbon monoxide, and PM2.5 particles into the atmosphere.</p>
+
+                        <div class="row g-4 mt-3">
+                            <div class="col-md-4">
+                                <div class="mini-box h-100">
+                                    <i class="fa-solid fa-bus fs-2 text-primary mb-3"></i>
+                                    <h6 class="fw-bold">Public Transport</h6>
+                                    <p class="small text-muted">Improving bus systems and encouraging public transportation can reduce traffic congestion and fuel usage.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mini-box h-100">
+                                    <i class="fa-solid fa-car-battery fs-2 text-success mb-3"></i>
+                                    <h6 class="fw-bold">Electric Vehicles</h6>
+                                    <p class="small text-muted">Electric vehicles reduce direct emissions and improve long-term sustainability in urban areas.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mini-box h-100">
+                                    <i class="fa-solid fa-road fs-2 text-warning mb-3"></i>
+                                    <h6 class="fw-bold">Traffic Planning</h6>
+                                    <p class="small text-muted">Smart traffic systems reduce idle time and improve road efficiency during peak hours.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-dark-green mt-4" data-bs-toggle="modal" data-bs-target="#transportModal">
+                            Explore Full Strategy
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="industry" class="solution-section mb-5">
+                <div class="card solution-card border-0 shadow-lg overflow-hidden">
+                    <img src="media/Hledan Street.jpg" class="card-img-top solution-image">
+
+                    <div class="card-body p-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                            <h2 class="fw-bold">Industrial Emission Control</h2>
+                            <span class="badge bg-warning text-dark rounded-pill px-3 py-2">Monitoring Required</span>
+                        </div>
+
+                        <p class="text-muted">Factories and industrial zones contribute heavily to urban pollution through smoke, fuel combustion, and chemical emissions. Stronger environmental regulations and modern filtration systems are essential.</p>
+
+                        <div class="alert alert-warning border-0 rounded-4 mt-4">
+                            <strong>Important:</strong> Industrial smoke contains sulfur dioxide, nitrogen oxides, and fine particles that can remain suspended in the atmosphere.
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-3 mt-4">
+                            <button class="btn btn-outline-dark rounded-pill" data-bs-toggle="tooltip" title="Tracks industrial pollution in real time">
+                                AQI Sensors
+                            </button>
+
+                            <button class="btn btn-outline-dark rounded-pill" data-bs-toggle="popover" data-bs-title="Emission Filters" data-bs-content="Modern filtration systems help reduce dangerous pollutants before they enter the atmosphere.">
+                                Filtration Systems
+                            </button>
+                        </div>
+
+                        <button class="btn btn-dark-green mt-4" data-bs-toggle="modal" data-bs-target="#industryModal">
+                            View Industrial Solutions
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="smart" class="solution-section mb-5">
+                <div class="card solution-card border-0 shadow-lg overflow-hidden">
+                    <img src="media/front view.jpg" class="card-img-top solution-image">
+
+                    <div class="card-body p-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                            <h2 class="fw-bold">Smart Environmental Technology</h2>
+                            <span class="badge bg-info rounded-pill px-3 py-2">Future Systems</span>
+                        </div>
+
+                        <p class="text-muted">Smart city systems use sensors, artificial intelligence, and real-time monitoring to detect pollution levels and support environmental planning.</p>
+
+                        <div class="row mt-4 g-4">
+                            <div class="col-md-6">
+                                <div class="p-4 rounded-4 bg-light h-100">
+                                    <h5 class="fw-bold">Live AQI Monitoring</h5>
+                                    <div class="progress mt-3" style="height: 10px;">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 75%"></div>
+                                    </div>
+                                    <p class="small text-muted mt-3">Smart sensors collect environmental data across different parts of Yangon.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="p-4 rounded-4 bg-light h-100">
+                                    <h5 class="fw-bold">Smart Alert Systems</h5>
+                                    <div class="progress mt-3" style="height: 10px;">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" style="width: 88%"></div>
+                                    </div>
+                                    <p class="small text-muted mt-3">Automated systems notify residents when pollution reaches unhealthy levels.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-dark-green mt-4" data-bs-toggle="modal" data-bs-target="#smartModal">
+                            Open Smart Technology Guide
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="stats" class="py-5">
+                <div class="bg-dark text-white rounded-5 p-5 shadow-lg">
+                    <div class="row text-center g-4">
+                        <div class="col-md-3">
+                            <h2 class="display-5 fw-bold">72%</h2>
+                            <p class="small opacity-75">Urban pollution linked to transport systems</p>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h2 class="display-5 fw-bold">48%</h2>
+                            <p class="small opacity-75">Air quality improvement possible through regulation</p>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h2 class="display-5 fw-bold">24/7</h2>
+                            <p class="small opacity-75">Real-time monitoring capability</p>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h2 class="display-5 fw-bold">2030</h2>
+                            <p class="small opacity-75">Future sustainability target</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="transportModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content rounded-5 border-0">
+            <div class="modal-body p-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="fw-bold">Vehicle Emission Strategy</h2>
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <p class="text-muted">Vehicle emissions are one of the most serious environmental challenges in urban Yangon. Reducing traffic-related pollution requires both government action and public participation. Cleaner transportation systems can significantly improve air quality and reduce respiratory illnesses.</p>
+                <div class="row g-4 mt-3">
+                    <div class="col-md-6">
+                        <div class="p-4 bg-light rounded-4 h-100">
+                            <h5 class="fw-bold mb-3">Key Pollution Sources</h5>
+                            <ul class="text-muted">
+                                <li>Diesel buses and trucks</li>
+                                <li>Traffic congestion</li>
+                                <li>Older fuel engines</li>
+                                <li>Fuel combustion during idle traffic</li>
+                                <li>Rapid increase in vehicle ownership</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-4 bg-light rounded-4 h-100">
+                            <h5 class="fw-bold mb-3">Recommended Improvements</h5>
+                            <ul class="text-muted">
+                                <li>Electric public transportation</li>
+                                <li>Better urban road planning</li>
+                                <li>Emission testing systems</li>
+                                <li>Dedicated bicycle lanes</li>
+                                <li>Cleaner fuel standards</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="industryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content rounded-5 border-0">
+            <div class="modal-body p-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="fw-bold">Industrial Control Infrastructure</h2>
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <p class="text-muted">Modern factory zones require systematic filters. Transitioning factory zones outwards away from highly-concentrated housing zones down-wind helps prevent hazardous particulate build-ups over long geographic periods.</p>
+                <div class="row g-4 mt-3">
+                    <div class="col-md-6">
+                        <div class="p-4 bg-light rounded-4 h-100">
+                            <h5 class="fw-bold mb-3">Policy Targets</h5>
+                            <ul class="text-muted">
+                                <li>Mandatory particulate capture technology</li>
+                                <li>Off-peak scheduled structural execution</li>
+                                <li>Fossil fuel alternative integration targets</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-4 bg-light rounded-4 h-100">
+                            <h5 class="fw-bold mb-3">Enforcement Steps</h5>
+                            <ul class="text-muted">
+                                <li>Real-time automated local stack sensors</li>
+                                <li>Strict clean air dynamic zone boundaries</li>
+                                <li>Punitive scaling processing fees</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="smartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content rounded-5 border-0">
+            <div class="modal-body p-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="fw-bold">Smart IoT Platform Guide</h2>
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <p class="text-muted">Using edge internet-of-things (IoT) atmospheric sensor nodes helps form a real-time data layer over Yangon. Data algorithms can trace specific anomalies or sudden hazardous incidents seamlessly.</p>
+                <div class="row g-4 mt-3">
+                    <div class="col-md-6">
+                        <div class="p-4 bg-light rounded-4 h-100">
+                            <h5 class="fw-bold mb-3">Hardware Layer</h5>
+                            <ul class="text-muted">
+                                <li>Distributed particulate optical arrays</li>
+                                <li>Solar-powered independent utility poles</li>
+                                <li>Cellular telemetry processing chips</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-4 bg-light rounded-4 h-100">
+                            <h5 class="fw-bold mb-3">Public Access Systems</h5>
+                            <ul class="text-muted">
+                                <li>Mobile alert text integrations</li>
+                                <li>Dynamic street side electronic warning boards</li>
+                                <li>Open api platforms for academic research</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="custom-footer mt-5">
+
+<div class="container">
+
+<div class="row gy-4">
+
+<div class="col-lg-4 col-md-12 text-center text-lg-start">
+
+<a class="navbar-brand d-block mb-3" href="index.html">
+
+<img src="media/logo.jpg" class="rounded-logo border border-light border-opacity-25" style="width: 50px; height: 50px;">
+
+<span class="ms-2 fw-bold text-white">Smart City Yangon</span>
+
+</a>
+
+<p class="small opacity-75 pe-lg-5">
+
+Providing Yangon residents with accessible air quality information to encourage environmental awareness, healthier living, and sustainable urban development.
+
+</p>
+
+<div class="footer-socials d-flex gap-3 justify-content-center justify-content-lg-start mt-3">
+
+<a href="https://www.facebook.com/share/181xZYCWML/?mibextid=wwXIfr" class="text-white opacity-75">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="https://www.tiktok.com/@greenwaveprojectpbl?_r=1&_t=ZS-96brNTNGCgf" class="text-white opacity-75">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+
+<a href="https://web.telegram.org/k/" class="text-white opacity-75">
+<i class="fa-brands fa-telegram"></i>
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="col-6 col-lg-2 offset-lg-1">
+
+<h6 class="fw-bold mb-3 text-uppercase small">Explore</h6>
+
+<ul class="list-unstyled small opacity-75">
+
+<li class="mb-2"><a href="index.html" class="text-decoration-none text-white">Home</a></li>
+
+<li class="mb-2"><a href="about.html" class="text-decoration-none text-white">About Us</a></li>
+
+<li class="mb-2"><a href="prevention.html" class="text-decoration-none text-white">Prevention</a></li>
+
+<li class="mb-2"><a href="affects.html" class="text-decoration-none text-white">Affects</a></li>
+
+<li class="mb-2"><a href="causes.html" class="text-decoration-none text-white">Causes</a></li>
+
+</ul>
+
+</div>
+
+
+
+<div class="col-6 col-lg-2">
+
+<h6 class="fw-bold mb-3 text-uppercase small">Resources</h6>
+
+<ul class="list-unstyled small opacity-75">
+
+<li class="mb-2"><a href="faqs.html" class="text-decoration-none text-white">FAQs</a></li>
+
+<li class="mb-2"><a href="map.html" class="text-decoration-none text-white">Zoning Data</a></li>
+
+<li class="mb-2"><a href="privacy.html" class="text-decoration-none text-white">Privacy Policy</a></li>
+
+</ul>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-12">
+
+<h6 class="fw-bold mb-3 text-uppercase small">Stay Updated</h6>
+
+<p class="small opacity-75">Get alerts about air quality changes in Yangon.</p>
+
+
+<form action="contact.html" method="GET">
+
+<div class="input-group mb-3">
+
+<input type="email"
+
+name="userEmail"
+
+class="form-control form-control-sm bg-transparent border-light border-opacity-25 text-white"
+
+placeholder="Enter email address"
+
+required>
+
+<button class="btn btn-outline-light btn-sm" type="submit">Join</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<div class="citation-container">
+    <a href="media/Document 1.docx" download class="btn-citation download-btn">
+        Download Citation
+    </a>
+    
+    <a href="https://edusn-my.sharepoint.com/:w:/g/personal/thirihaymann_edusnschool_co_uk/IQCx-lve096ISLrrx7c4MkwNATe3js4er93nj6ka3yqateQ?e=VedTvq" target="_blank" class="btn-citation view-btn">
+        View Citation
+    </a>
+</div>
+
+<hr class="my-5 border-light border-opacity-10">
+
+
+
+<div class="row align-items-center">
+
+<div class="col-md-6 text-center text-md-start">
+
+<p class="small mb-0 opacity-50">© 2026 Smart City Air Quality Project. All rights reserved.</p>
+
+</div>
+
+<div class="col-md-6 text-center text-md-end">
+
+<p class="small mb-0 opacity-50">Built by <span class="fw-bold">Thiri Hammer Team</span></p>
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Initialize Bootstrap tooltips and popovers safely
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
+
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+    [...popoverTriggerList].map(el => new bootstrap.Popover(el));
+
+    // 2. High-Performance Scroll Tracker (Fixes the sticky highlight bug)
+    const spyLinks = document.querySelectorAll('#solutionSpy .list-group-item');
+    const sections = document.querySelectorAll('.solution-section, #stats');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px', /* Focuses on the middle-upper part of viewport window math */
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                
+                spyLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+});
+</script>
+</body>
+</html>
