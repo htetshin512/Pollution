@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Smart City Yangon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="media/logo.jpg" type="image/x-icon">
+
+    <style>
+        /* --- CORE DESIGN & TRANSITIONS (NO JS) --- */
+        :root {
+            --primary-blue-grey: #475569;
+            --dark-blue-grey: #334155;
+            --dark-blue: #0f172a;
+            --soft-bg: #f8fafc;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: #fafbfc;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Layout Rework - UNTOUCHED ORIGINAL STRUCTURAL STYLE */
+        .contact-hero {
+            background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+            padding: 6rem 0;
+            color: var(--dark-blue);
+            position: relative;
+            border-radius: 0 0 2.5rem 2.5rem;
+            animation: slideInUp 0.5s ease-out;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Modern Floating Input Design */
+        .form-floating > .form-control:focus ~ label,
+        .form-floating > .form-control:not(:placeholder-shown) ~ label,
+        .form-floating > .form-select ~ label {
+            color: var(--primary-blue-grey);
+            transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+        }
+
+        .custom-input {
+            border: 2px solid var(--border-color);
+            border-radius: 1rem;
+            background-color: var(--soft-bg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1.2rem 1rem;
+        }
+
+        .custom-input:focus {
+            border-color: var(--primary-blue-grey);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(71, 85, 105, 0.12);
+        }
+
+        /* Glassmorphism Sidebar & Cards */
+        .modern-sidebar-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.04);
+            height: 100%;
+        }
+
+        /* Animated Grid Info Items */
+        .contact-method-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-method-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-blue-grey);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border-color: transparent;
+        }
+
+        .contact-method-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(71, 85, 105, 0.08);
+            color: var(--primary-blue-grey);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method-card:hover .icon-box {
+            background: var(--primary-blue-grey);
+            color: #ffffff;
+            transform: rotate(10deg);
+        }
+
+        /* Modernized Button styling */
+        .btn-submit {
+            background: var(--primary-blue-grey);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: var(--dark-blue-grey);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(71, 85, 105, 0.2);
+            color: white;
+        }
+
+        /* Checkbox styling */
+        .custom-checkbox:checked {
+            background-color: var(--primary-blue-grey);
+            border-color: var(--primary-blue-grey);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-3 nav-wrapper">
+    <nav class="navbar navbar-expand-lg custom-nav">
+        <div class="container-fluid">
+
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="media/logo.jpg" class="rounded-logo" alt="Logo">
+                <span class="brand-name">EcoSphere</span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#mobileMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="desktopMenu">
+                <ul class="navbar-nav ms-auto align-items-center gap-3">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="map.html">Pollution Map</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown">
+                             Discovery
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="causes.html">Causes</a></li>
+                            <li><a class="dropdown-item" href="prevention.html">Prevention</a></li>
+                            <li><a class="dropdown-item" href="affects.html">Affects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact Us</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="offcanvas offcanvas-end"
+     data-bs-scroll="true"
+     tabindex="-1"
+     id="mobileMenu"
+     aria-labelledby="mobileMenuLabel">
+
+    <div class="offcanvas-header">
+        <div class="d-flex align-items-center gap-2">
+            <img src="media/logo.jpg" class="rounded-logo" style="width:42px;height:42px;" alt="Logo">
+            <h5 class="offcanvas-title text-white mb-0" id="mobileMenuLabel">EcoSphere</h5>
+        </div>
+        <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <ul class="navbar-nav gap-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="map.html">Pollution Map</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">Discovery</a>
+                <ul class="dropdown-menu border-0 bg-transparent">
+                    <li><a class="dropdown-item text-white-50" href="causes.html">Causes</a></li>
+                    <li><a class="dropdown-item text-white-50" href="prevention.html">Prevention</a></li>
+                    <li><a class="dropdown-item text-white-50" href="affects.html">Affects</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+</div>
+
+<section class="contact-hero mb-5">
+    <div class="container">
+        <div class="row align-items-center gy-4">
+            <div class="col-lg-6 text-center text-lg-start">
+                <span class="badge bg-secondary bg-opacity-25 text-secondary mb-3 px-3 py-2 rounded-pill fw-semibold" style="color: var(--primary-blue-grey) !important;">Contact Registry</span>
+                <h1 class="display-4 fw-bold mb-3" style="color: var(--dark-blue);">Let's Build a Cleaner Yangon Together</h1>
+                <p class="lead text-muted mb-0">Have data to share, feedback on local environmental metrics, or inquiries regarding community partnerships? Our team is active and ready to collaborate.</p>
+            </div>
+            <div class="col-lg-5 offset-lg-1 d-none d-lg-block text-center">
+                <div class="position-relative p-5">
+                    <i class="bi bi-clouds-fill text-secondary opacity-25 position-absolute top-0 start-0" style="font-size: 4rem;"></i>
+                    <i class="bi bi-geo-alt-fill text-secondary" style="font-size: 7rem; filter: drop-shadow(0 10px 20px rgba(71,85,105,0.15));"></i>
+                    <i class="bi bi-wind text-secondary opacity-25 position-absolute bottom-0 end-0" style="font-size: 3rem;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-5 fade-in-up">
+    <div class="container">
+        <div class="row g-4">
+            
+            <div class="col-lg-7">
+                <div class="modern-sidebar-card">
+                    <h3 class="fw-bold mb-2">Connect Directly</h3>
+                    <p class="text-muted mb-4 small">Fill out the fields below. Native structural formatting will direct your message directly to our local data administration hub.</p>
+                    
+                    <form action="#" method="POST">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control custom-input" id="floatingName" placeholder="Your Name" required>
+                            <label for="floatingName" class="text-muted ms-2">Full Name</label>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control custom-input" id="floatingEmail" placeholder="name@example.com" required>
+                            <label for="floatingEmail" class="text-muted ms-2">Email Address</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select class="form-select custom-input pt-3" id="floatingSubject" aria-label="Inquiry Subject" required>
+                                <option value="" selected disabled hidden>Select message priority option</option>
+                                <option value="data-report">Report Air Quality Discrepancies</option>
+                                <option value="hardware">Sensor Node Hardware Inquiries</option>
+                                <option value="partnership">Community and School Partnerships</option>
+                                <option value="general">General Website Feedback</option>
+                            </select>
+                            <label for="floatingSubject" class="text-muted ms-2">Inquiry Topic</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control custom-input" id="floatingMessage" placeholder="Leave a message here" style="height: 150px" required></textarea>
+                            <label for="floatingMessage" class="text-muted ms-2">Detailed Message...</label>
+                        </div>
+
+                        <div class="form-check mb-4 ms-1">
+                            <input class="form-check-input custom-checkbox shadow-none" type="checkbox" id="dataConsent" required>
+                            <label class="form-check-label text-muted small" for="dataConsent">
+                                I verify that the metrics or commentary written above are submitted for regional database improvement purposes.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit w-100">
+                            Submit Form Entry <i class="bi bi-arrow-right-short ms-1 fs-5"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="d-flex flex-column gap-4 h-100">
+                    
+                    <div class="modern-sidebar-card">
+                        <h4 class="fw-bold mb-3"><i class="bi bi-shield-check text-secondary me-2"></i>Response Policy</h4>
+                        <p class="text-muted small mb-4">Our project review committee maps submissions to maintain clear urban statistics records across active stations.</p>
+                        
+                        <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
+                            <li class="d-flex justify-content-between border-bottom pb-2">
+                                <span class="fw-medium text-dark">Data Validation</span>
+                                <span class="text-muted small">9:00 AM - 4:30 PM</span>
+                            </li>
+                            <li class="d-flex justify-content-between border-bottom pb-2">
+                                <span class="fw-medium text-dark">Active Cycles</span>
+                                <span class="text-muted small">Monday thru Friday</span>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <span class="fw-medium text-dark">Processing Lag</span>
+                                <span class="fw-semibold small" style="color: var(--primary-blue-grey);">Under 24 Hours</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="modern-sidebar-card bg-dark text-white border-0">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="p-2 bg-secondary bg-opacity-25 rounded-3 text-white">
+                                <i class="bi bi-mailbox2 fs-4"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Regional Alerts</h4>
+                        </div>
+                        <p class="text-white-50 small mb-4">Subscribe to receive emergency air quality alerts, zoning regulation changes, and local civic developments directly via inbox dispatch updates.</p>
+                        
+                        <form action="#" method="POST">
+                            <div class="input-group">
+                                <input type="email" placeholder="Your current email" class="form-control custom-input bg-secondary bg-opacity-25 border-0 text-white" required>
+                                <button type="submit" class="btn btn-secondary px-4 rounded-end-3" style="background-color: var(--primary-blue-grey); border-color: var(--primary-blue-grey);">Join</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-5">
+            <div class="col-md-4">
+                <div class="contact-method-card">
+                    <div class="icon-box">
+                        <i class="bi bi-telephone-plus"></i>
+                    </div>
+                    <h5 class="fw-bold mb-1">Direct Call</h5>
+                    <p class="text-muted small mb-0">General Support Line</p>
+                    <a href="tel:+95987654321" class="stretched-link text-decoration-none fw-semibold text-dark d-block mt-2">+95 987 654 321</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-method-card">
+                    <div class="icon-box">
+                        <i class="bi bi-chat-square-heart"></i>
+                    </div>
+                    <h5 class="fw-bold mb-1">Electronic Mail</h5>
+                    <p class="text-muted small mb-0">Inquiries & Partnerships</p>
+                    <a href="mailto:smartcity@gmail.com" class="stretched-link text-decoration-none fw-semibold text-dark d-block mt-2">smartcity@gmail.com</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-method-card">
+                    <div class="icon-box">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <h5 class="fw-bold mb-1">Headquarters</h5>
+                    <p class="text-muted small mb-0">Operations Control Center</p>
+                    <span class="fw-semibold text-dark d-block mt-2">Yangon, Myanmar</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<footer id="footer" class="custom-footer mt-5">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-12 text-center text-lg-start">
+                <a class="navbar-brand d-block mb-3" href="index.html">
+                    <img src="media/logo.jpg" class="rounded-logo border border-light border-opacity-25" style="width: 50px; height: 50px;">
+                    <span class="ms-2 fw-bold text-white">Smart City Yangon</span>
+                </a>
+                <p class="small opacity-75 pe-lg-5">
+                    Empowering Yangon residents with real-time air quality data for a healthier, more sustainable urban future.
+                </p>
+                <div class="footer-socials d-flex gap-3 justify-content-center justify-content-lg-start mt-3">
+                  <a href="https://www.facebook.com/share/181xZYCWML/?mibextid=wwXIfr" class="text-white opacity-75">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="https://www.tiktok.com/@greenwaveprojectpbl?_r=1&_t=ZS-96brNTNGCgf" class="text-white opacity-75">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+
+<a href="https://web.telegram.org/k/" class="text-white opacity-75">
+<i class="fa-brands fa-telegram"></i>
+</a>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-2 offset-lg-1">
+                <h6 class="fw-bold mb-3 text-uppercase small">Explore</h6>
+                <ul class="list-unstyled small opacity-75">
+                    <li class="mb-2"><a href="index.html" class="text-decoration-none text-white">Home</a></li>
+                    <li class="mb-2"><a href="about.html" class="text-decoration-none text-white">About Us</a></li>
+                    <li class="mb-2"><a href="prevention.html" class="text-decoration-none text-white">Prevention</a></li>
+                    <li class="mb-2"><a href="affects.html" class="text-decoration-none text-white">Affects</a></li>
+                    <li class="mb-2"><a href="causes.html" class="text-decoration-none text-white">Causes</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-lg-2">
+                <h6 class="fw-bold mb-3 text-uppercase small">Resources</h6>
+                <ul class="list-unstyled small opacity-75">
+                    <li class="mb-2"><a href="faqs.html" class="text-decoration-none text-white">FAQs</a></li>
+                    <li class="mb-2"><a href="map.html" class="text-decoration-none text-white">Zoning Data</a></li>
+                    <li class="mb-2"><a href="privacy.html" class="text-decoration-none text-white">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-12">
+                <h6 class="fw-bold mb-3 text-uppercase small">Stay Updated</h6>
+                <p class="small opacity-75">Get alerts about air quality changes in Yangon.</p>
+                <form action="contact.html" method="GET">
+                    <div class="input-group mb-3">
+                        <input type="email" name="userEmail" class="form-control form-control-sm bg-transparent border-light border-opacity-25 text-white" placeholder="Enter email address" required>
+                        <button class="btn btn-outline-light btn-sm" type="submit">Join</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="citation-container">
+            <a href="media/Document 1.docx" download class="btn-citation download-btn">Download Citation</a>
+            <a href="https://edusn-my.sharepoint.com/:w:/g/personal/thirihaymann_edusnschool_co_uk/IQCx-lve096ISLrrx7c4MkwNATe3js4er93nj6ka3yqateQ?e=VedTvq" target="_blank" class="btn-citation view-btn">View Citation</a>
+        </div>
+
+        <hr class="my-5 border-light border-opacity-10">
+
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="small mb-0 opacity-50">© 2026 Smart City Air Quality Project. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p class="small mb-0 opacity-50">Built by <span class="fw-bold">Thiri Hammer Team</span></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
